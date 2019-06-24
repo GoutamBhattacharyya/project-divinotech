@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="43px"
+	 height="31px" viewBox="0 0 43 31" style="enable-background:new 0 0 43 31;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{fill:#ED2224;}
+	.st1{fill:#FFFFFF;}
+]]>
+</style>
+<g id="circle">
+	<path id="Layer_3_2_" class="st1" d="M15.854,30.876c6.717,0,12.603-4.295,14.646-10.688c0.124-0.39-0.091-0.806-0.479-0.93
+		c-0.391-0.129-0.805,0.091-0.93,0.479c-1.847,5.778-7.167,9.66-13.237,9.66c-7.663,0-13.898-6.234-13.898-13.897
+		S8.191,1.603,15.854,1.603c5.805,0,11.048,3.66,13.048,9.107c0.141,0.383,0.566,0.576,0.949,0.439
+		c0.383-0.141,0.58-0.565,0.439-0.949C28.078,4.173,22.276,0.124,15.854,0.124C7.375,0.124,0.478,7.021,0.478,15.5
+		S7.375,30.876,15.854,30.876z"/>
+</g>
+<g id="arrow">
+	<polygon id="Layer_4_1_" class="st1" points="42.051,14.5 15.061,14.5 20.051,9.498 20.051,6.664 11.311,15.426 20.051,24.336 
+		20.051,21.512 15.155,16.5 42.051,16.5 	"/>
+	<rect id="red_1_" x="30.549" y="14.486" class="st0" width="11.502" height="2.014"/>
+</g>
+</svg>
