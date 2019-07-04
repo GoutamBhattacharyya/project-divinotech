@@ -5,11 +5,18 @@ $(document).ready(function () { //menu
         if ($('#nav-icon2').attr('class') == "open") {
             $(".menu_head").slideDown(1000);
             $(".main_container, footer, .end_bar, header .logo").hide();
-            $("#nav-icon2 span").css('background', '#474545')
+            $("#nav-icon2 span").css('background', '#474545');
         } else {
             $(".menu_head").fadeOut(1200);
-            $(".main_container, footer, .end_bar, header .logo").show();
-            $("#nav-icon2 span").css('background', '#fff')
+            $(".main_container, footer, .end_bar, header").show();
+            $("#nav-icon2 span").css('background', '#fff');
+            if($("#ani").is(":visible")){
+                $(".menu_head").hide();
+            }else{
+                $(".menu_head").show();
+                $(".logo").show();
+            }
+            
         }
     })
 

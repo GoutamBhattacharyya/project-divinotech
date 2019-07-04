@@ -258,7 +258,7 @@
 //echo $_SESSION['browser_id']; 
 if(!isset($_SESSION['browser_id']))  { ?>
 
-    <div class="left_bar padding-left wow fadeInLeft  animated" data-wow-duration="15s" style="visibility: visible; animation-duration: 35s; animation-name: fadeInLeft;">
+    <div class="left_bar padding-left wow fadeInLeft  animated" data-wow-duration="5s" style="visibility: visible; animation-duration: 35s; animation-name: fadeInLeft;">
 
         <div class="left_menu anim"> 
 
@@ -302,7 +302,7 @@ if(!isset($_SESSION['browser_id']))  { ?>
     </div> 
     <?php } else {?>
 
-    <div class="left_bar padding-left wow fadeInLeft  animated" data-wow-duration="15s" style="visibility: visible; animation-duration: 35s; animation-name: fadeInLeft;">
+    <div class="left_bar padding-left wow fadeInLeft  animated" data-wow-duration="5s" style="visibility: visible; animation-duration: 35s; animation-name: fadeInLeft;">
 
         <div class="left_menu anim-menu"> 
 
@@ -366,8 +366,8 @@ if(!isset($_SESSION['browser_id']))  { ?>
 
         <div class="modal-body">
 
-        <!-- <iframe width="100%" height="600" src="https://www.youtube.com/embed/jqIXnyL8B1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-            <video id="videoPlayer" width="100%" height="600" controls >
+        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jqIXnyL8B1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <video id="videoPlayer" width="100%" height="100%" controls >
                 <source src="images/divinotech_video_trial.mp4" type="video/mp4">
                 <source src="images/divinotech_video_trial.webm" type="video/webm">
                 Your browser does not support the video tag.
@@ -396,7 +396,9 @@ if(!isset($_SESSION['browser_id']))  { ?>
 <?php if(!isset($_SESSION['browser_id'])) { ?>
         <?php $_SESSION['back']='TEMP'; ?>
         <img alt="Divinotech Logo | In Persuit of Simplicity" src="images/divinotech-logoani.gif">
-        <iframe src="images/Divinotech.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <!-- <iframe src="images/Divinotech.mp3" allow="autoplay" id="audio" style="display:none"></iframe> -->
+        
+        <audio autoplay preload="metadata" src="images/Divinotech.mp3"></audio>
         <?php } else { ?>
         <?php $_SESSION['back']=''; ?>
         <img class="img-fluid divi_logo" src="images/divinotech-word.png" alt="Divinotech word logo">
@@ -463,13 +465,15 @@ $(function () {
     
 
 function video_play()
-{
-   // alert('ashim');
+{   
     var videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.load();
     if (videoPlayer.paused == false) {
             videoPlayer.pause();
             videoPlayer.firstChild.nodeValue = 'Play';
         } else {
+            videoPlayer.currentTime = 0;
+            
             videoPlayer.play();
             videoPlayer.firstChild.nodeValue = 'Pause';
         }
@@ -479,8 +483,9 @@ $('#myModal').click(function() {
     
      var videoPlayer = document.getElementById('videoPlayer');
     if (videoPlayer.paused == false) {
-            videoPlayer.pause();
+            videoPlayer.pause();            
             videoPlayer.firstChild.nodeValue = 'Play';
+            
         }
        
     });
@@ -591,63 +596,16 @@ $_SESSION['browser_id']= $browser_id;
             {
                $('#ani').fadeOut(800);
                $('#logo-top').fadeIn(800);
-               $('#footer').hide();
-                 
-            //     $('#ani').hide();
-            //     $('#flyin').show();
-            //    // return false;
-            //       var width = $(window).width();
-            //     if(width=='1280')
-            //     {
-            //    // $('#flyin').animate({marginLeft: "1026px", marginTop: "-19px", 'height':"148px", 'width':"264px"}, 1000);
-            //       $('#flyin').animate({marginLeft: "1155px",'width':"96px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1920')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1783px",'width':"106px",marginTop: "-148px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
-            //     else if(width=='1440')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1330px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
-            //     else if(width=='1366')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1250px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
-            //     // $('#ani').delay(1050).fadeOut();
+               $('#footer').hide();    
                 $("#erp").removeClass("active");
-
                 $("#web").addClass("active");
-
                 $("#apps").removeClass("active");
-
                 $("#ech").removeClass("active");
-
                 $("#seo").removeClass("active");
-
-                
-
-                $.ajax({url: "website.php", success: function(result){
-
-                   
-
+                $.ajax({url: "website.php", success: function(result){  
                     $("#web_").html(result);
-
-
-                }
-
-               
-
-            });
-
-               
-
+                }        
+            });    
             }  
 
             //apps open
@@ -656,66 +614,19 @@ $_SESSION['browser_id']= $browser_id;
             {
                $('#ani').fadeOut(800);
                $('#logo-top').fadeIn(800);
-               $('#footer').hide();
-            //      $('#ani').hide();
-            //     $('#flyin').show();
-            //       var width = $(window).width();
-            //     if(width=='1280')
-            //     {
-            //    // $('#flyin').animate({marginLeft: "1026px", marginTop: "-19px", 'height':"148px", 'width':"264px"}, 1000);
-            //       $('#flyin').animate({marginLeft: "1155px",'width':"96px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1920')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //         $('#flyin').animate({marginLeft: "1783px",'width':"106px",marginTop: "-148px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1440')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1330px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1366')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1250px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
-                
+               $('#footer').hide();        
                 $("#erp").removeClass("active");
-
                 $("#web").removeClass("active");
-
                 $("#apps").addClass("active");
-
                 $("#ech").removeClass("active");
-
-                $("#seo").removeClass("active");
-
-                
-
-
+                $("#seo").removeClass("active");  
                 $("#web_").html('');
-
-                $.ajax({url: "apps.php", success: function(result){
-
-                   
-
-                    $("#web_").html(result);
-
-                
+                $.ajax({url: "apps.php", success: function(result){                
+                    $("#web_").html(result);               
 
                 }
-
-
-            });
-
-               
-
+            });     
             }
-
-
-
              //apps open
 
              function get_ecommerce()
@@ -725,67 +636,14 @@ $_SESSION['browser_id']= $browser_id;
                $('#ani').fadeOut(800);
                $('#logo-top').fadeIn(800);
               $('#footer').hide();
-
-            //     $('#ani').hide();
-            //     $('#flyin').show();
-
-            //       var width = $(window).width();
-            //     if(width=='1280')
-            //     {
-            //    // $('#flyin').animate({marginLeft: "1026px", marginTop: "-19px", 'height':"148px", 'width':"264px"}, 1000);
-            //       $('#flyin').animate({marginLeft: "1155px",'width':"96px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1920')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //         $('#flyin').animate({marginLeft: "1783px",'width':"106px",marginTop: "-148px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1440')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1330px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1366')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1250px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
                 $("#erp").removeClass("active");
-
                 $("#web").removeClass("active");
-
                 $("#apps").removeClass("active");
-
                 $("#ech").addClass("active");
-
-                $("#seo").removeClass("active");
-
-                
-
-               // $('#ani').hide();
-
-                //$("#rightbar_").hide();
-
-                $("#web_").html('');
-
-                $.ajax({url: "e_commerce.php", success: function(result){
-
-                   
-
+                $("#seo").removeClass("active");  
+                $.ajax({url: "e_commerce.php", success: function(result){                 
                     $("#web_").html(result);
-
-                   // textanimation();
-
-                }
-
-                //complete: function() {
-
-                   // alert('ASHIM');
-
-                 //   textanimation();
-
-               // }
+                }      
 
             });
 
@@ -804,82 +662,17 @@ $_SESSION['browser_id']= $browser_id;
                $('#ani').fadeOut(800);
                $('#logo-top').fadeIn(800);
                $('#footer').hide();
-
-
-               //$('#ani').fadeIn(1600);
-               //$('#logo-top').fadeOut(1600);
-
-
-               // $('#ani').animate({'display':'none'},500);
-               // $('#logo-top').animate({'display':'block'},500);
-
-
-
-                //$('#flyin').delay(200).show();
-                 // var width = $(window).width();
-               //  if(width=='1280')
-               //  {
-               // // $('#flyin').animate({marginLeft: "1026px", marginTop: "-19px", 'height':"148px", 'width':"264px"}, 1000);
-               //    $('#flyin').animate({marginLeft: "1155px",'width':"96px",marginTop: "-23px",marginRight: "30px", 'height':"100%",'opacity':'1.0'}, 800);
-               //  }
-               //  else if(width=='1920')
-               //  {
-               //     // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-               //      //$('#flyin').animate({marginLeft: "1783px",'width':"106px",marginTop: "-148px",marginRight: "30px", 'height':"100%",'opacity':'1.0'}, 800);
-
-                  
-               //  }
-               //  else if(width=='1440')
-               //  {
-               //     // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-               //     $('#flyin').animate({marginLeft: "1330px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-               //  }
-               //  else if(width=='1366')
-               //  {
-               //     // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-               //     $('#flyin').animate({marginLeft: "1250px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-               //  }
-
+              
                 $("#erp").addClass("active");
-
                 $("#web").removeClass("active");
-
                 $("#apps").removeClass("active");
-
                 $("#ech").removeClass("active");
-
                 $("#seo").removeClass("active");
-
-                
-
-                //$('#ani').hide();
-
-                //$("#rightbar_").hide();
-
                 $("#web_").html('');
-
-                $.ajax({url: "erp.php", success: function(result){
-
-                   
-
+                $.ajax({url: "erp.php", success: function(result){                  
                     $("#web_").html(result);
-
-                   // textanimation();
-
                 }
-
-                //complete: function() {
-
-                   // alert('ASHIM');
-
-                 //   textanimation();
-
-               // }
-
             });
-
-               
-
             }
 
             
@@ -892,66 +685,15 @@ $_SESSION['browser_id']= $browser_id;
                $('#ani').fadeOut(800);
                $('#logo-top').fadeIn(800);
                $('#footer').hide();
-            //    $('#ani').hide();
-            //     $('#flyin').show();
-            //       var width = $(window).width();
-            //     if(width=='1280')
-            //     {
-            //    // $('#flyin').animate({marginLeft: "1026px", marginTop: "-19px", 'height':"148px", 'width':"264px"}, 1000);
-            //       $('#flyin').animate({marginLeft: "1155px",'width':"96px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1920')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //         $('#flyin').animate({marginLeft: "1783px",'width':"106px",marginTop: "-148px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1440')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1330px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-            //     else if(width=='1366')
-            //     {
-            //        // $('#flyin').animate({marginLeft: "1654px", marginTop: "-19px", 'height':"181px", 'width':"336px"}, 1000);
-            //        $('#flyin').animate({marginLeft: "1250px",'width':"98px",marginTop: "-23px",marginRight: "30px", 'height':"100%"}, 500);
-            //     }
-
                 $("#erp").removeClass("active");
-
                 $("#web").removeClass("active");
-
                 $("#apps").removeClass("active");
-
                 $("#ech").removeClass("active");
-
                 $("#seo").addClass("active");
-
-                
-
-                //$('#ani').hide();
-
-                //$("#rightbar_").hide();
-
                 $("#web_").html('');
-
-                $.ajax({url: "seo.php", success: function(result){
-
-                   
-
+                $.ajax({url: "seo.php", success: function(result){ 
                     $("#web_").html(result);
-
-                   // textanimation();
-
                 }
-
-                //complete: function() {
-
-                   // alert('ASHIM');
-
-                 //   textanimation();
-
-               // }
-
             });
             }             
 
@@ -993,6 +735,13 @@ $_SESSION['browser_id']= $browser_id;
         txt = element.text().replace('span', 'label');
         element.html(txt);
     }
+
+    $('#nav-icon2').bind("click",function () {
+        var isVisible = $("#ani").is(":visible");
+        if(isVisible){
+            $('#logo-top').fadeOut(800);
+        }
+    })   
 </script>
 
     

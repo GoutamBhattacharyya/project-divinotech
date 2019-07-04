@@ -337,12 +337,13 @@ if(!isset($_SESSION['browser_id'])) { ?>
 
 function video_play()
 {
-   // alert('ashim');
     var videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.load();
     if (videoPlayer.paused == false) {
             videoPlayer.pause();
             videoPlayer.firstChild.nodeValue = 'Play';
         } else {
+            videoPlayer.currentTime = 0;            
             videoPlayer.play();
             videoPlayer.firstChild.nodeValue = 'Pause';
         }
@@ -354,6 +355,7 @@ $('#myModal').click(function() {
     if (videoPlayer.paused == false) {
             videoPlayer.pause();
             videoPlayer.firstChild.nodeValue = 'Play';
+            
         }
        
     });

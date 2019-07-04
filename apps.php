@@ -164,15 +164,18 @@ if(!isset($_SESSION['browser_id'])) { ?>
         </div>
     </div>
 </footer> -->
-<script type="text/javascript">
-    function video_play()
+<script>
+    
+
+function video_play()
 {
-   
     var videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.load();
     if (videoPlayer.paused == false) {
             videoPlayer.pause();
             videoPlayer.firstChild.nodeValue = 'Play';
         } else {
+            videoPlayer.currentTime = 0;            
             videoPlayer.play();
             videoPlayer.firstChild.nodeValue = 'Pause';
         }
@@ -184,9 +187,11 @@ $('#myModal').click(function() {
     if (videoPlayer.paused == false) {
             videoPlayer.pause();
             videoPlayer.firstChild.nodeValue = 'Play';
+            
         }
        
     });
+
 
 </script>
 <?php } 
