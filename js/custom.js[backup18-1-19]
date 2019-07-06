@@ -779,7 +779,7 @@ $(window).scroll(function () {
 
 //mouseover animate
 $(function () {
-    $("#rp, #view, .logo img, #nav-icon2, #lp, #bx1, .accord .ptm i, .accord .ptm, .owl-prev, .owl-next, a, button, #psh, a#rp, #mod_btn p, #mod_btn p i, #psh1, .styled-checkbox + label, .push_right").mouseover(function () {
+    $("#rp, #view, .logo img, #nav-icon2, #lp, #bx1, .accord .ptm i, .accord .ptm, .owl-prev, .owl-next, button, #psh, a#rp, #mod_btn p, #mod_btn p i, #psh1, .styled-checkbox + label, .push_right").mouseover(function () {
         $(this).css({
             "opacity": 0.2,
             "cursor": "url(\"images/cursor_select.png\"), auto",
